@@ -71,12 +71,12 @@
   users.users.acerbic = {
     isNormalUser = true;
     description = "Ace";
-    extraGroups = [ "video" "audio"  "networkmanager" "wheel" ];
+    extraGroups = [ "video" "audio" "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       firefox
       thunderbird
       gimp
-      emacs
+      sublime4
       youtube-dl
       kitty
     ];
@@ -92,6 +92,8 @@
     wget
     git
     vscodium
+    tailscale
+    docker
   #  emacs
   ];
 
@@ -110,6 +112,12 @@
 
   # Enable Flatpaks.
   services.flatpak.enable = true;
+
+  # Enable Tailscale.
+  services.tailscale.enable = true;
+
+  # Enable Docker.
+  virtualisation.docker.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
