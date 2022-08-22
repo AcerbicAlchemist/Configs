@@ -71,7 +71,7 @@
   users.users.acerbic = {
     isNormalUser = true;
     description = "Ace";
-    extraGroups = [ "video" "audio" "networkmanager" "wheel" "docker"];
+    extraGroups = [ "video" "audio" "networkmanager" "wheel" "docker" "vboxusers"];
     packages = with pkgs; [
       firefox
       thunderbird
@@ -79,6 +79,7 @@
       sublime4
       youtube-dl
       kitty
+      virtualbox
     ];
   };
 
@@ -118,6 +119,11 @@
 
   # Enable Docker.
   virtualisation.docker.enable = true;
+
+  # Enable VirtualBox.
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
